@@ -15,6 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@ht/counter": ["libs/counter/src/index.ts"],
       "@ht/scratch": ["libs/scratch/src/index.ts"]
     }
   },
