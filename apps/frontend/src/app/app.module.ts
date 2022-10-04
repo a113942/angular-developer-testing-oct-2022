@@ -7,6 +7,9 @@ import { MastheadComponent } from './components/masthead/masthead.component';
 import { HomeComponent } from './components/home/home.component';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { NavigationComponent } from './components/navigation/navigation.component';
+import { StoreModule } from '@ngrx/store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { reducers } from './state';
 
 const routes: Routes = [
   {
@@ -34,6 +37,8 @@ const routes: Routes = [
   imports: [
     BrowserModule,
     RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules }),
+    StoreModule.forRoot(reducers),
+    StoreDevtoolsModule.instrument(),
   ],
   providers: [],
   bootstrap: [AppComponent],
