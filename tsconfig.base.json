@@ -19,7 +19,8 @@
     "baseUrl": ".",
     "paths": {
       "@ht/counter": ["libs/counter/src/index.ts"],
-      "@ht/scratch": ["libs/scratch/src/index.ts"]
+      "@ht/scratch": ["libs/scratch/src/index.ts"],
+      "@ht/songs": ["libs/songs/src/index.ts"]
     }
   },
   "exclude": [

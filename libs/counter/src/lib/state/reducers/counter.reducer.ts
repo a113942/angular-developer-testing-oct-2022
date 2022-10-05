@@ -1,6 +1,7 @@
+import { state } from '@angular/animations';
 import { createReducer, on } from '@ngrx/store';
 import { CountByEvents } from '../actions/count-by.actions';
-import { CountEvents } from '../actions/counter.actions';
+import { CountDocuments, CountEvents } from '../actions/counter.actions';
 export type Options = 'one' | 'three' | 'five';
 export interface CountState {
   current: number;
@@ -14,6 +15,7 @@ const initialState: CountState = {
 
 export const reducers = createReducer(
   initialState,
+  on(CountDocuments.state, (_, a) => a.payload),
 
   on(CountByEvents.set, (s, a) => ({ ...s, by: a.payload })),
   on(CountEvents.increment, (s: CountState): CountState => {

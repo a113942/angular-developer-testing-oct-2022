@@ -3,7 +3,7 @@ describe('The Navigation Component', () => {
     cy.visit('/');
   });
   describe('Initial State', () => {
-    it('Using the Location Thing I screwed up Earlier', () => {
+    it('Using the Location', () => {
       cy.location().should((loc) => {
         expect(loc.pathname).to.eq('/home');
         expect(loc.href).to.eq('http://localhost:4200/home');
@@ -38,6 +38,18 @@ describe('The Navigation Component', () => {
         .click()
         .url()
         .should('match', /\/counter$/);
+    });
+  });
+
+  describe('The Songs Link', () => {
+    it('should be navigable', () => {
+      cy.get('[data-testid="app-navigation"]')
+        .find('[data-testid="link-songs"]')
+        .click()
+        .url()
+        .should('match', /\/songs$/);
+
+      cy.get('[data-testid="songs"]').should('exist');
     });
   });
 });

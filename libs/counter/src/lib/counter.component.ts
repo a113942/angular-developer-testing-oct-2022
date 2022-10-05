@@ -1,7 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { selectCurrentCount } from './state';
-import { CountEvents } from './state/actions/counter.actions';
+import { CountEvents, FeatureEvents } from './state/actions/counter.actions';
 
 @Component({
   selector: 'ht-counter',
@@ -11,7 +11,9 @@ import { CountEvents } from './state/actions/counter.actions';
 export class CounterComponent {
   current$ = this.store.select(selectCurrentCount);
 
-  constructor(private store: Store) {}
+  constructor(private store: Store) {
+    store.dispatch(FeatureEvents.entered());
+  }
   increment() {
     this.store.dispatch(CountEvents.increment());
   }

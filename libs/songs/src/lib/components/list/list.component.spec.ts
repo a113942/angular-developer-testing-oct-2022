@@ -1,17 +1,17 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CountByComponent } from './count-by.component';
+import { ListComponent } from './list.component';
 
-describe('CountByComponent', () => {
-  let component: CountByComponent;
-  let fixture: ComponentFixture<CountByComponent>;
+describe('ListComponent', () => {
+  let component: ListComponent;
+  let fixture: ComponentFixture<ListComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [CountByComponent],
+      declarations: [ListComponent],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(CountByComponent);
+    fixture = TestBed.createComponent(ListComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

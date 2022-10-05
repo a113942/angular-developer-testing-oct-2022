@@ -5,6 +5,9 @@ import { RouterModule, Routes } from '@angular/router';
 import { CountByComponent } from './components/count-by/count-by.component';
 import { StoreModule } from '@ngrx/store';
 import { featureName, reducers } from './state';
+import { EffectsModule } from '@ngrx/effects';
+import { CounterAdapter } from './services/counter.adapter';
+import { CounterEffects } from './state/effects/counter.effects';
 
 const routes: Routes = [
   {
@@ -18,15 +21,18 @@ const routes: Routes = [
     ],
   },
 ];
+const counterToUse = new CounterAdapter('counter-key');
 @NgModule({
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
     StoreModule.forFeature(featureName, reducers),
+    EffectsModule.forFeature([CounterEffects]),
   ],
   declarations: [
     CounterComponent,
     CountByComponent,
   ],
+  providers: [{ provide: CounterAdapter, useValue: counterToUse }],
 })
 export class CounterModule {}

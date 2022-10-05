@@ -10,6 +10,7 @@ import { NavigationComponent } from './components/navigation/navigation.componen
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { reducers } from './state';
+import { EffectsModule } from '@ngrx/effects';
 
 const routes: Routes = [
   {
@@ -19,6 +20,10 @@ const routes: Routes = [
   {
     path: 'counter',
     loadChildren: () => import('@ht/counter').then((c) => c.CounterModule),
+  },
+  {
+    path: 'songs',
+    loadChildren: () => import('@ht/songs').then((m) => m.SongsModule),
   },
   {
     path: '**',
@@ -39,6 +44,7 @@ const routes: Routes = [
     RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules }),
     StoreModule.forRoot(reducers),
     StoreDevtoolsModule.instrument(),
+    EffectsModule.forRoot([]),
   ],
   providers: [],
   bootstrap: [AppComponent],

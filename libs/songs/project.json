@@ -1,15 +1,15 @@
 {
-  "name": "scratch",
+  "name": "songs",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "projectType": "library",
-  "sourceRoot": "libs/scratch/src",
+  "sourceRoot": "libs/songs/src",
   "prefix": "ht",
   "targets": {
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/libs/scratch"],
+      "outputs": ["coverage/libs/songs"],
       "options": {
-        "jestConfig": "libs/scratch/jest.config.ts",
+        "jestConfig": "libs/songs/jest.config.ts",
         "passWithNoTests": true
       }
     },
@@ -17,8 +17,8 @@
       "executor": "@nrwl/linter:eslint",
       "options": {
         "lintFilePatterns": [
-          "libs/scratch/**/*.ts",
-          "libs/scratch/**/*.html"
+          "libs/songs/**/*.ts",
+          "libs/songs/**/*.html"
         ]
       }
     }
